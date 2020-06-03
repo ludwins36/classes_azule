@@ -19,6 +19,7 @@
 /stock
 /tax
 /tree
+/webservice
 
 Access.php                                                                                           
 Address.php                                                                                          
