@@ -19,7 +19,7 @@
 /stock
 /tax
 /tree
-/webservice
+/*webservice
 
 Access.php                                                                                           
 Address.php                                                                                          
@@ -51,5 +51,7 @@ Cookie.php
 Country.php                                                                                          
 Currency.php                                                                                         
 Curve.php                                                                                            
-Customer.php                                                                                         
+Customer.php     
+
+index.php
 
