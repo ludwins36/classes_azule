@@ -22,10 +22,10 @@
 /*webservice
 
 #Access.php                                                                                           
-Address.php                                                                                          
-AddressChecksumCore.php                                                                              
-AddressFormat.php                                                                                    
-Alias.php                                                                                            
+Address.php                                                                                       
+AddressChecksumCore.php                                                                           
+AddressFormat.php                                                                              
+Alias.php                                                                                 
 Attachment.php                                                                                       
 Attribute.php                                                                                        
 AttributeGroup.php                                                                                   
@@ -55,4 +55,5 @@ Customer.php
 
 index.php
 Access.php
+Address.php
 
