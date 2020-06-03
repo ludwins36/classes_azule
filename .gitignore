@@ -112,8 +112,30 @@ WarehouseAddress.php
 Windows.php
 Zone.php
 PrestaShopCollection.php
-
-
+Manufacturer.php
+Media.php
+Message.php
+Meta.php
+Notification.php
+ObjectModel.php
+Pack.php
+Page.php
+PaymentFree.php
+PaymentModule.php
+PhpEncryption.php
+PhpEncryptionEngine.php
+PhpEncryptionLegacyEngine.php
+PrestaShopAutoload.php
+PrestaShopBackup.php
+PrestaShopLogger.php
+Product.php
+ProductAssembler.php
+ProductDownload.php
+ProductPresenterFactory.php
+ProductSale.php
+Referrer.php
+Risk.php
+.htaccess
 
 
 
