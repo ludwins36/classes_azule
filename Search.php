@@ -195,6 +195,30 @@ class SearchCore
         return $string;
     }
 
+    public static function getStoreWsName($name)
+    {
+        $query = 'SELECT id_ws_seller,
+        id_customer,
+        name,
+        payment_acc,
+        date_add,
+        date_upd,
+        active FROM ' . _DB_PREFIX_ . "ws_seller Where  name = '$name'";
+        $sql = Db::getInstance()->getRow($query);
+
+        return $sql;
+    }
+
+    public static function getProductsWsId($id)
+    {
+        $query = 'SELECT id_ws_seller,
+        id_product FROM ' . _DB_PREFIX_ . "ws_seller_product Where id_ws_seller = $id";
+        $sql = Db::getInstance()->ExecuteS($query);
+
+        return $sql;
+    }
+
+
     public static function find(
         $id_lang,
         $expr,
@@ -221,6 +245,28 @@ class SearchCore
 
         if (!Validate::isOrderBy($order_by) || !Validate::isOrderWay($order_way)) {
             return false;
+        }
+
+        $store = self::getStoreWsName($expr);
+        if($store){
+            $products = self::getProductsWsId($store['id_ws_seller']);
+            $total = count($products) - 1;
+            $dataProducts = 'IN(';
+                foreach($products as $key => $product){
+                    if($key == $total){
+                        $dataProducts .= $product['id_product'] . ')';
+    
+                    }else{
+                        $dataProducts .= $product['id_product'] . ',';
+    
+                    }
+                }
+                
+                $sql = 'SELECT * FROM ' . _DB_PREFIX_ . 'product where id_product '. $dataProducts;
+                $rest = Db::getInstance()->ExecuteS($sql);
+                $data = Product::getProductsProperties(3, $rest);
+
+                return array('total' => count($data), 'result' => $data);
         }
 
         $intersect_array = array();
